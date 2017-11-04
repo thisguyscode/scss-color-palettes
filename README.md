@@ -1,5 +1,6 @@
 # scss-color-palettes
-Experimental color palette generator using SCSS and bourbon
+Experimental color palette generator using SCSS and bourbon  
+Example live on: https://thisguyscode.github.io/scss-color-palettes/
 
 ## What is it
 Pass in a color and get a color scale to use in your design
