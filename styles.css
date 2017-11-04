@@ -1,0 +1,3054 @@
+/* ==========================================================================
+   # MAIN
+========================================================================== */
+/**
+ * Everything except vendor code can be found here directly. In production
+ * this file should be split for proper code hygiene. 
+ */
+/* IMPORTS
+======================================================================== */
+/**
+ * 1. Bourbon used for a just a few functions e.g. random()
+ * 2. Perceptual brightness calculator, used to give the hex code and color name
+      enough contrast with its background
+ */
+/*[1]*/
+/*[2]*/
+/*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
+/**
+ * 1. Change the default font family in all browsers (opinionated).
+ * 2. Prevent adjustments of font size after orientation changes in IE and iOS.
+ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  -webkit-padding-start: 0; }
+
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */ }
+
+/**
+ * Remove the margin in all browsers (opinionated).
+ */
+body {
+  box-sizing: border-box;
+  margin: 0; }
+
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in Edge, IE, and Firefox.
+ * 2. Add the correct display in IE.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+  /* 1 */
+  display: block; }
+
+/**
+ * Add the correct display in IE 9-.
+ */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block; }
+
+/**
+ * Add the correct display in iOS 4-7.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  vertical-align: baseline; }
+
+/**
+ * Add the correct display in IE 10-.
+ * 1. Add the correct display in IE.
+ */
+template,
+[hidden] {
+  display: none; }
+
+/* Links
+   ========================================================================== */
+/**
+ * 1. Remove the gray background on active links in IE 10.
+ * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
+ */
+a {
+  background-color: transparent;
+  /* 1 */
+  -webkit-text-decoration-skip: objects;
+  /* 2 */ }
+
+/**
+ * Remove the outline on focused links when they are also active or hovered
+ * in all browsers (opinionated).
+ */
+a:active,
+a:hover {
+  outline-width: 0; }
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * 1. Remove the bottom border in Firefox 39-.
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */ }
+
+/**
+ * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+ */
+b,
+strong {
+  font-weight: inherit; }
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder; }
+
+/**
+ * Add the correct font style in Android 4.3-.
+ */
+dfn {
+  font-style: italic; }
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+/**
+ * Add the correct background and color in IE 9-.
+ */
+mark {
+  background-color: #ff0;
+  color: #000; }
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 80%; }
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sub {
+  bottom: -0.25em; }
+
+sup {
+  top: -0.5em; }
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove the border on images inside links in IE 10-.
+ */
+img {
+  border-style: none; }
+
+/**
+ * Hide the overflow in IE.
+ */
+svg:not(:root) {
+  overflow: hidden; }
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */ }
+
+/**
+ * Add the correct margin in IE 8.
+ */
+figure {
+  margin: 1em 40px; }
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */ }
+
+/* Forms
+   ========================================================================== */
+/**
+ * 1. Change font properties to `inherit` in all browsers (opinionated).
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  /* 1 */
+  margin: 0;
+  /* 2 */ }
+
+/**
+ * Restore the font weight unset by the previous rule.
+ */
+optgroup {
+  font-weight: bold; }
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input {
+  /* 1 */
+  overflow: visible; }
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select {
+  /* 1 */
+  text-transform: none; }
+
+/**
+ * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */ }
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0; }
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText; }
+
+/**
+ * Change the border, margin, and padding in all browsers (opinionated).
+ */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+legend {
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */ }
+
+/**
+ * Remove the default vertical scrollbar in IE.
+ */
+textarea {
+  overflow: auto; }
+
+/**
+ * 1. Add the correct box sizing in IE 10-.
+ * 2. Remove the padding in IE 10-.
+ */
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */ }
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome and Safari on OS X.
+ */
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/**
+ * Correct the text style of placeholders in Chrome, Edge, and Safari.
+ */
+::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54; }
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */ }
+
+/* VARIABLES
+======================================================================== */
+/**
+ * The color generator accepts a single color and returns a palette.
+ * Below are a selection of test colors
+ */
+/* Da color MACHINE
+======================================================================== */
+/**
+ * 1. Mixin accepts a single color and a theme name
+ * 2. Reset the color lightness to ensure we can create a palette with the
+      full range of brightnesses. I.E. Attempt to standaradize the treatment
+      of colors.
+ * 3. Currently not used - can use complimentary color in the palette
+ * 4. Define how the color is adjusted for each palette color
+ * 5. Create a class named after $name variable and wrap all the color
+      classes inside it.
+ * 6. Create a class for each of the palette colors
+ * 7. Set the text color to contrasting color
+ * 8. Set the background to the color
+ * 9. Print the hex-code on top
+ * 10. Make _base  
+ */
+/* INSTANTIATE / GENERATE CLASSES IN STYLESHEET
+======================================================================== */
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.custom {
+  /*[5]*/ }
+  .palette.custom ._05 {
+    /*[6]*/
+    color: #002c33;
+    /*[7]*/
+    background: #efedf7;
+    /*[8]*/ }
+    .palette.custom ._05:after {
+      content: "#efedf7";
+      /*[9]*/ }
+  .palette.custom ._10 {
+    color: #002c33;
+    background: #dad9f2; }
+    .palette.custom ._10:after {
+      content: "#dad9f2"; }
+  .palette.custom ._20 {
+    color: #002c33;
+    background: #adb1eb; }
+    .palette.custom ._20:after {
+      content: "#adb1eb"; }
+  .palette.custom ._30 {
+    color: #efedf7;
+    background: #7d92e8; }
+    .palette.custom ._30:after {
+      content: "#7d92e8"; }
+  .palette.custom ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #efedf7;
+    background: #4d80e6; }
+    .palette.custom ._base:after {
+      content: "#4d80e6"; }
+  .palette.custom ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #efedf7;
+    background: #0356fc; }
+    .palette.custom ._highlight:after {
+      content: "#0356fc"; }
+  .palette.custom ._60 {
+    color: #efedf7;
+    background: #0f60bd; }
+    .palette.custom ._60:after {
+      content: "#0f60bd"; }
+  .palette.custom ._70 {
+    color: #efedf7;
+    background: #085a91; }
+    .palette.custom ._70:after {
+      content: "#085a91"; }
+  .palette.custom ._80 {
+    color: #efedf7;
+    background: #004b66; }
+    .palette.custom ._80:after {
+      content: "#004b66"; }
+  .palette.custom ._90 {
+    color: #efedf7;
+    background: #002c33; }
+    .palette.custom ._90:after {
+      content: "#002c33"; }
+  .palette.custom ._95 {
+    color: #efedf7;
+    background: #001a1a; }
+    .palette.custom ._95:after {
+      content: "#001a1a"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.random {
+  /*[5]*/ }
+  .palette.random ._05 {
+    /*[6]*/
+    color: #183300;
+    /*[7]*/
+    background: #edf7f3;
+    /*[8]*/ }
+    .palette.random ._05:after {
+      content: "#edf7f3";
+      /*[9]*/ }
+  .palette.random ._10 {
+    color: #183300;
+    background: #d9f2e4; }
+    .palette.random ._10:after {
+      content: "#d9f2e4"; }
+  .palette.random ._20 {
+    color: #183300;
+    background: #aeeac1; }
+    .palette.random ._20:after {
+      content: "#aeeac1"; }
+  .palette.random ._30 {
+    color: #183300;
+    background: #7ee791; }
+    .palette.random ._30:after {
+      content: "#7ee791"; }
+  .palette.random ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #183300;
+    background: #4ee456; }
+    .palette.random ._base:after {
+      content: "#4ee456"; }
+  .palette.random ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #183300;
+    background: #04fb11; }
+    .palette.random ._highlight:after {
+      content: "#04fb11"; }
+  .palette.random ._60 {
+    color: #edf7f3;
+    background: #1ebc10; }
+    .palette.random ._60:after {
+      content: "#1ebc10"; }
+  .palette.random ._70 {
+    color: #edf7f3;
+    background: #259108; }
+    .palette.random ._70:after {
+      content: "#259108"; }
+  .palette.random ._80 {
+    color: #edf7f3;
+    background: #246501; }
+    .palette.random ._80:after {
+      content: "#246501"; }
+  .palette.random ._90 {
+    color: #edf7f3;
+    background: #183300; }
+    .palette.random ._90:after {
+      content: "#183300"; }
+  .palette.random ._95 {
+    color: #edf7f3;
+    background: #101a00; }
+    .palette.random ._95:after {
+      content: "#101a00"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.slack {
+  /*[5]*/ }
+  .palette.slack ._05 {
+    /*[6]*/
+    color: #1b0e25;
+    /*[7]*/
+    background: #f2f2f2;
+    /*[8]*/ }
+    .palette.slack ._05:after {
+      content: "#f2f2f2";
+      /*[9]*/ }
+  .palette.slack ._10 {
+    color: #1b0e25;
+    background: #e6e6e6; }
+    .palette.slack ._10:after {
+      content: "#e6e6e6"; }
+  .palette.slack ._20 {
+    color: #1b0e25;
+    background: #cccccc; }
+    .palette.slack ._20:after {
+      content: "#cccccc"; }
+  .palette.slack ._30 {
+    color: #1b0e25;
+    background: #b6afb5; }
+    .palette.slack ._30:after {
+      content: "#b6afb5"; }
+  .palette.slack ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #f2f2f2;
+    background: #a38fa1; }
+    .palette.slack ._base:after {
+      content: "#a38fa1"; }
+  .palette.slack ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #f2f2f2;
+    background: #aa55a1; }
+    .palette.slack ._highlight:after {
+      content: "#aa55a1"; }
+  .palette.slack ._60 {
+    color: #f2f2f2;
+    background: #79527a; }
+    .palette.slack ._60:after {
+      content: "#79527a"; }
+  .palette.slack ._70 {
+    color: #f2f2f2;
+    background: #593960; }
+    .palette.slack ._70:after {
+      content: "#593960"; }
+  .palette.slack ._80 {
+    color: #f2f2f2;
+    background: #3a2145; }
+    .palette.slack ._80:after {
+      content: "#3a2145"; }
+  .palette.slack ._90 {
+    color: #f2f2f2;
+    background: #1b0e25; }
+    .palette.slack ._90:after {
+      content: "#1b0e25"; }
+  .palette.slack ._95 {
+    color: #f2f2f2;
+    background: #0c0614; }
+    .palette.slack ._95:after {
+      content: "#0c0614"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.coke {
+  /*[5]*/ }
+  .palette.coke ._05 {
+    /*[6]*/
+    color: #330020;
+    /*[7]*/
+    background: #f8f2ed;
+    /*[8]*/ }
+    .palette.coke ._05:after {
+      content: "#f8f2ed";
+      /*[9]*/ }
+  .palette.coke ._10 {
+    color: #330020;
+    background: #f3e1d8; }
+    .palette.coke ._10:after {
+      content: "#f3e1d8"; }
+  .palette.coke ._20 {
+    color: #330020;
+    background: #ebb8ad; }
+    .palette.coke ._20:after {
+      content: "#ebb8ad"; }
+  .palette.coke ._30 {
+    color: #f8f2ed;
+    background: #e9817c; }
+    .palette.coke ._30:after {
+      content: "#e9817c"; }
+  .palette.coke ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #f8f2ed;
+    background: #e74b58; }
+    .palette.coke ._base:after {
+      content: "#e74b58"; }
+  .palette.coke ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #f8f2ed;
+    background: #fe0116; }
+    .palette.coke ._highlight:after {
+      content: "#fe0116"; }
+  .palette.coke ._60 {
+    color: #f8f2ed;
+    background: #be0e34; }
+    .palette.coke ._60:after {
+      content: "#be0e34"; }
+  .palette.coke ._70 {
+    color: #f8f2ed;
+    background: #920738; }
+    .palette.coke ._70:after {
+      content: "#920738"; }
+  .palette.coke ._80 {
+    color: #f8f2ed;
+    background: #660031; }
+    .palette.coke ._80:after {
+      content: "#660031"; }
+  .palette.coke ._90 {
+    color: #f8f2ed;
+    background: #330020; }
+    .palette.coke ._90:after {
+      content: "#330020"; }
+  .palette.coke ._95 {
+    color: #f8f2ed;
+    background: #1a0013; }
+    .palette.coke ._95:after {
+      content: "#1a0013"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.greyscale {
+  /*[5]*/ }
+  .palette.greyscale ._05 {
+    /*[6]*/
+    color: #211214;
+    /*[7]*/
+    background: #f2f2f2;
+    /*[8]*/ }
+    .palette.greyscale ._05:after {
+      content: "#f2f2f2";
+      /*[9]*/ }
+  .palette.greyscale ._10 {
+    color: #211214;
+    background: #e6e6e6; }
+    .palette.greyscale ._10:after {
+      content: "#e6e6e6"; }
+  .palette.greyscale ._20 {
+    color: #211214;
+    background: #cccccc; }
+    .palette.greyscale ._20:after {
+      content: "#cccccc"; }
+  .palette.greyscale ._30 {
+    color: #211214;
+    background: #b3b3b3; }
+    .palette.greyscale ._30:after {
+      content: "#b3b3b3"; }
+  .palette.greyscale ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #f2f2f2;
+    background: #999999; }
+    .palette.greyscale ._base:after {
+      content: "#999999"; }
+  .palette.greyscale ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #f2f2f2;
+    background: #967969; }
+    .palette.greyscale ._highlight:after {
+      content: "#967969"; }
+  .palette.greyscale ._60 {
+    color: #f2f2f2;
+    background: #6b6361; }
+    .palette.greyscale ._60:after {
+      content: "#6b6361"; }
+  .palette.greyscale ._70 {
+    color: #f2f2f2;
+    background: #544645; }
+    .palette.greyscale ._70:after {
+      content: "#544645"; }
+  .palette.greyscale ._80 {
+    color: #f2f2f2;
+    background: #3d2929; }
+    .palette.greyscale ._80:after {
+      content: "#3d2929"; }
+  .palette.greyscale ._90 {
+    color: #f2f2f2;
+    background: #211214; }
+    .palette.greyscale ._90:after {
+      content: "#211214"; }
+  .palette.greyscale ._95 {
+    color: #f2f2f2;
+    background: #12080b; }
+    .palette.greyscale ._95:after {
+      content: "#12080b"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.red {
+  /*[5]*/ }
+  .palette.red ._05 {
+    /*[6]*/
+    color: #330015;
+    /*[7]*/
+    background: #f8f4ec;
+    /*[8]*/ }
+    .palette.red ._05:after {
+      content: "#f8f4ec";
+      /*[9]*/ }
+  .palette.red ._10 {
+    color: #330015;
+    background: #f4e6d7; }
+    .palette.red ._10:after {
+      content: "#f4e6d7"; }
+  .palette.red ._20 {
+    color: #330015;
+    background: #eec4aa; }
+    .palette.red ._20:after {
+      content: "#eec4aa"; }
+  .palette.red ._30 {
+    color: #330015;
+    background: #ed9578; }
+    .palette.red ._30:after {
+      content: "#ed9578"; }
+  .palette.red ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #f8f4ec;
+    background: #ed5945; }
+    .palette.red ._base:after {
+      content: "#ed5945"; }
+  .palette.red ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #f8f4ec;
+    background: #ff1e00; }
+    .palette.red ._highlight:after {
+      content: "#ff1e00"; }
+  .palette.red ._60 {
+    color: #f8f4ec;
+    background: #c4080b; }
+    .palette.red ._60:after {
+      content: "#c4080b"; }
+  .palette.red ._70 {
+    color: #f8f4ec;
+    background: #970219; }
+    .palette.red ._70:after {
+      content: "#970219"; }
+  .palette.red ._80 {
+    color: #f8f4ec;
+    background: #66001d; }
+    .palette.red ._80:after {
+      content: "#66001d"; }
+  .palette.red ._90 {
+    color: #f8f4ec;
+    background: #330015; }
+    .palette.red ._90:after {
+      content: "#330015"; }
+  .palette.red ._95 {
+    color: #f8f4ec;
+    background: #1a000e; }
+    .palette.red ._95:after {
+      content: "#1a000e"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.orange {
+  /*[5]*/ }
+  .palette.orange ._05 {
+    /*[6]*/
+    color: #330000;
+    /*[7]*/
+    background: #f8f9ec;
+    /*[8]*/ }
+    .palette.orange ._05:after {
+      content: "#f8f9ec";
+      /*[9]*/ }
+  .palette.orange ._10 {
+    color: #330000;
+    background: #f5f3d6; }
+    .palette.orange ._10:after {
+      content: "#f5f3d6"; }
+  .palette.orange ._20 {
+    color: #330000;
+    background: #f0e1a8; }
+    .palette.orange ._20:after {
+      content: "#f0e1a8"; }
+  .palette.orange ._30 {
+    color: #330000;
+    background: #f0c775; }
+    .palette.orange ._30:after {
+      content: "#f0c775"; }
+  .palette.orange ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #330000;
+    background: #f09f42; }
+    .palette.orange ._base:after {
+      content: "#f09f42"; }
+  .palette.orange ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #330000;
+    background: #ff8800; }
+    .palette.orange ._highlight:after {
+      content: "#ff8800"; }
+  .palette.orange ._60 {
+    color: #f8f9ec;
+    background: #c75305; }
+    .palette.orange ._60:after {
+      content: "#c75305"; }
+  .palette.orange ._70 {
+    color: #f8f9ec;
+    background: #992900; }
+    .palette.orange ._70:after {
+      content: "#992900"; }
+  .palette.orange ._80 {
+    color: #f8f9ec;
+    background: #660e00; }
+    .palette.orange ._80:after {
+      content: "#660e00"; }
+  .palette.orange ._90 {
+    color: #f8f9ec;
+    background: #330000; }
+    .palette.orange ._90:after {
+      content: "#330000"; }
+  .palette.orange ._95 {
+    color: #f8f9ec;
+    background: #1a0003; }
+    .palette.orange ._95:after {
+      content: "#1a0003"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.yellow {
+  /*[5]*/ }
+  .palette.yellow ._05 {
+    /*[6]*/
+    color: #330900;
+    /*[7]*/
+    background: #f5f9ec;
+    /*[8]*/ }
+    .palette.yellow ._05:after {
+      content: "#f5f9ec";
+      /*[9]*/ }
+  .palette.yellow ._10 {
+    color: #330900;
+    background: #f1f5d6; }
+    .palette.yellow ._10:after {
+      content: "#f1f5d6"; }
+  .palette.yellow ._20 {
+    color: #330900;
+    background: #f0efa8; }
+    .palette.yellow ._20:after {
+      content: "#f0efa8"; }
+  .palette.yellow ._30 {
+    color: #330900;
+    background: #f0dd75; }
+    .palette.yellow ._30:after {
+      content: "#f0dd75"; }
+  .palette.yellow ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #330900;
+    background: #f0bf42; }
+    .palette.yellow ._base:after {
+      content: "#f0bf42"; }
+  .palette.yellow ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #330900;
+    background: #ffb700; }
+    .palette.yellow ._highlight:after {
+      content: "#ffb700"; }
+  .palette.yellow ._60 {
+    color: #f5f9ec;
+    background: #c77605; }
+    .palette.yellow ._60:after {
+      content: "#c77605"; }
+  .palette.yellow ._70 {
+    color: #f5f9ec;
+    background: #994500; }
+    .palette.yellow ._70:after {
+      content: "#994500"; }
+  .palette.yellow ._80 {
+    color: #f5f9ec;
+    background: #662000; }
+    .palette.yellow ._80:after {
+      content: "#662000"; }
+  .palette.yellow ._90 {
+    color: #f5f9ec;
+    background: #330900; }
+    .palette.yellow ._90:after {
+      content: "#330900"; }
+  .palette.yellow ._95 {
+    color: #f5f9ec;
+    background: #1a0100; }
+    .palette.yellow ._95:after {
+      content: "#1a0100"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.green {
+  /*[5]*/ }
+  .palette.green ._05 {
+    /*[6]*/
+    color: #1e2f04;
+    /*[7]*/
+    background: #f1f4f2;
+    /*[8]*/ }
+    .palette.green ._05:after {
+      content: "#f1f4f2";
+      /*[9]*/ }
+  .palette.green ._10 {
+    color: #1e2f04;
+    background: #e0ebe3; }
+    .palette.green ._10:after {
+      content: "#e0ebe3"; }
+  .palette.green ._20 {
+    color: #1e2f04;
+    background: #bbddc1; }
+    .palette.green ._20:after {
+      content: "#bbddc1"; }
+  .palette.green ._30 {
+    color: #1e2f04;
+    background: #92d395; }
+    .palette.green ._30:after {
+      content: "#92d395"; }
+  .palette.green ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #1e2f04;
+    background: #70ca68; }
+    .palette.green ._base:after {
+      content: "#70ca68"; }
+  .palette.green ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #1e2f04;
+    background: #34da25; }
+    .palette.green ._highlight:after {
+      content: "#34da25"; }
+  .palette.green ._60 {
+    color: #f1f4f2;
+    background: #44a12b; }
+    .palette.green ._60:after {
+      content: "#44a12b"; }
+  .palette.green ._70 {
+    color: #f1f4f2;
+    background: #3e7d1c; }
+    .palette.green ._70:after {
+      content: "#3e7d1c"; }
+  .palette.green ._80 {
+    color: #f1f4f2;
+    background: #32580e; }
+    .palette.green ._80:after {
+      content: "#32580e"; }
+  .palette.green ._90 {
+    color: #f1f4f2;
+    background: #1e2f04; }
+    .palette.green ._90:after {
+      content: "#1e2f04"; }
+  .palette.green ._95 {
+    color: #f1f4f2;
+    background: #131901; }
+    .palette.green ._95:after {
+      content: "#131901"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.bluegreen {
+  /*[5]*/ }
+  .palette.bluegreen ._05 {
+    /*[6]*/
+    color: #003309;
+    /*[7]*/
+    background: #eef4f6;
+    /*[8]*/ }
+    .palette.bluegreen ._05:after {
+      content: "#eef4f6";
+      /*[9]*/ }
+  .palette.bluegreen ._10 {
+    color: #003309;
+    background: #dbedf0; }
+    .palette.bluegreen ._10:after {
+      content: "#dbedf0"; }
+  .palette.bluegreen ._20 {
+    color: #003309;
+    background: #b3e6e5; }
+    .palette.bluegreen ._20:after {
+      content: "#b3e6e5"; }
+  .palette.bluegreen ._30 {
+    color: #003309;
+    background: #85e0d3; }
+    .palette.bluegreen ._30:after {
+      content: "#85e0d3"; }
+  .palette.bluegreen ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #003309;
+    background: #57dbb6; }
+    .palette.bluegreen ._base:after {
+      content: "#57dbb6"; }
+  .palette.bluegreen ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #003309;
+    background: #0ff0b0; }
+    .palette.bluegreen ._highlight:after {
+      content: "#0ff0b0"; }
+  .palette.bluegreen ._60 {
+    color: #eef4f6;
+    background: #1ab373; }
+    .palette.bluegreen ._60:after {
+      content: "#1ab373"; }
+  .palette.bluegreen ._70 {
+    color: #eef4f6;
+    background: #0f8a46; }
+    .palette.bluegreen ._70:after {
+      content: "#0f8a46"; }
+  .palette.bluegreen ._80 {
+    color: #eef4f6;
+    background: #056122; }
+    .palette.bluegreen ._80:after {
+      content: "#056122"; }
+  .palette.bluegreen ._90 {
+    color: #eef4f6;
+    background: #003309; }
+    .palette.bluegreen ._90:after {
+      content: "#003309"; }
+  .palette.bluegreen ._95 {
+    color: #eef4f6;
+    background: #001a01; }
+    .palette.bluegreen ._95:after {
+      content: "#001a01"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.blue {
+  /*[5]*/ }
+  .palette.blue ._05 {
+    /*[6]*/
+    color: #00332d;
+    /*[7]*/
+    background: #eeeef7;
+    /*[8]*/ }
+    .palette.blue ._05:after {
+      content: "#eeeef7";
+      /*[9]*/ }
+  .palette.blue ._10 {
+    color: #00332d;
+    background: #dadef1; }
+    .palette.blue ._10:after {
+      content: "#dadef1"; }
+  .palette.blue ._20 {
+    color: #00332d;
+    background: #b0c2e8; }
+    .palette.blue ._20:after {
+      content: "#b0c2e8"; }
+  .palette.blue ._30 {
+    color: #00332d;
+    background: #81aee4; }
+    .palette.blue ._30:after {
+      content: "#81aee4"; }
+  .palette.blue ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #eeeef7;
+    background: #52a5e0; }
+    .palette.blue ._base:after {
+      content: "#52a5e0"; }
+  .palette.blue ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #eeeef7;
+    background: #0993f6; }
+    .palette.blue ._highlight:after {
+      content: "#0993f6"; }
+  .palette.blue ._60 {
+    color: #eeeef7;
+    background: #1489b8; }
+    .palette.blue ._60:after {
+      content: "#1489b8"; }
+  .palette.blue ._70 {
+    color: #eeeef7;
+    background: #0b7a8e; }
+    .palette.blue ._70:after {
+      content: "#0b7a8e"; }
+  .palette.blue ._80 {
+    color: #eeeef7;
+    background: #036263; }
+    .palette.blue ._80:after {
+      content: "#036263"; }
+  .palette.blue ._90 {
+    color: #eeeef7;
+    background: #00332d; }
+    .palette.blue ._90:after {
+      content: "#00332d"; }
+  .palette.blue ._95 {
+    color: #eeeef7;
+    background: #001a13; }
+    .palette.blue ._95:after {
+      content: "#001a13"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.purpleblue {
+  /*[5]*/ }
+  .palette.purpleblue ._05 {
+    /*[6]*/
+    color: #0a1b29;
+    /*[7]*/
+    background: #f2f2f2;
+    /*[8]*/ }
+    .palette.purpleblue ._05:after {
+      content: "#f2f2f2";
+      /*[9]*/ }
+  .palette.purpleblue ._10 {
+    color: #0a1b29;
+    background: #e6e6e6; }
+    .palette.purpleblue ._10:after {
+      content: "#e6e6e6"; }
+  .palette.purpleblue ._20 {
+    color: #0a1b29;
+    background: #cac7d1; }
+    .palette.purpleblue ._20:after {
+      content: "#cac7d1"; }
+  .palette.purpleblue ._30 {
+    color: #0a1b29;
+    background: #a7a3c2; }
+    .palette.purpleblue ._30:after {
+      content: "#a7a3c2"; }
+  .palette.purpleblue ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #f2f2f2;
+    background: #8080b3; }
+    .palette.purpleblue ._base:after {
+      content: "#8080b3"; }
+  .palette.purpleblue ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #f2f2f2;
+    background: #4242bd; }
+    .palette.purpleblue ._highlight:after {
+      content: "#4242bd"; }
+  .palette.purpleblue ._60 {
+    color: #f2f2f2;
+    background: #424c8a; }
+    .palette.purpleblue ._60:after {
+      content: "#424c8a"; }
+  .palette.purpleblue ._70 {
+    color: #f2f2f2;
+    background: #2e3e6b; }
+    .palette.purpleblue ._70:after {
+      content: "#2e3e6b"; }
+  .palette.purpleblue ._80 {
+    color: #f2f2f2;
+    background: #1a2e4d; }
+    .palette.purpleblue ._80:after {
+      content: "#1a2e4d"; }
+  .palette.purpleblue ._90 {
+    color: #f2f2f2;
+    background: #0a1b29; }
+    .palette.purpleblue ._90:after {
+      content: "#0a1b29"; }
+  .palette.purpleblue ._95 {
+    color: #f2f2f2;
+    background: #041016; }
+    .palette.purpleblue ._95:after {
+      content: "#041016"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.purple {
+  /*[5]*/ }
+  .palette.purple ._05 {
+    /*[6]*/
+    color: #0d0e26;
+    /*[7]*/
+    background: #f2f2f2;
+    /*[8]*/ }
+    .palette.purple ._05:after {
+      content: "#f2f2f2";
+      /*[9]*/ }
+  .palette.purple ._10 {
+    color: #0d0e26;
+    background: #e6e6e6; }
+    .palette.purple ._10:after {
+      content: "#e6e6e6"; }
+  .palette.purple ._20 {
+    color: #0d0e26;
+    background: #cccccc; }
+    .palette.purple ._20:after {
+      content: "#cccccc"; }
+  .palette.purple ._30 {
+    color: #0d0e26;
+    background: #b5abba; }
+    .palette.purple ._30:after {
+      content: "#b5abba"; }
+  .palette.purple ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #f2f2f2;
+    background: #998aa8; }
+    .palette.purple ._base:after {
+      content: "#998aa8"; }
+  .palette.purple ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #f2f2f2;
+    background: #804fb0; }
+    .palette.purple ._highlight:after {
+      content: "#804fb0"; }
+  .palette.purple ._60 {
+    color: #f2f2f2;
+    background: #5f4d80; }
+    .palette.purple ._60:after {
+      content: "#5f4d80"; }
+  .palette.purple ._70 {
+    color: #f2f2f2;
+    background: #403663; }
+    .palette.purple ._70:after {
+      content: "#403663"; }
+  .palette.purple ._80 {
+    color: #f2f2f2;
+    background: #231f47; }
+    .palette.purple ._80:after {
+      content: "#231f47"; }
+  .palette.purple ._90 {
+    color: #f2f2f2;
+    background: #0d0e26; }
+    .palette.purple ._90:after {
+      content: "#0d0e26"; }
+  .palette.purple ._95 {
+    color: #f2f2f2;
+    background: #050814; }
+    .palette.purple ._95:after {
+      content: "#050814"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.pinkred {
+  /*[5]*/ }
+  .palette.pinkred ._05 {
+    /*[6]*/
+    color: #330026;
+    /*[7]*/
+    background: #f6f1ee;
+    /*[8]*/ }
+    .palette.pinkred ._05:after {
+      content: "#f6f1ee";
+      /*[9]*/ }
+  .palette.pinkred ._10 {
+    color: #330026;
+    background: #f0dfdb; }
+    .palette.pinkred ._10:after {
+      content: "#f0dfdb"; }
+  .palette.pinkred ._20 {
+    color: #330026;
+    background: #e7b4b1; }
+    .palette.pinkred ._20:after {
+      content: "#e7b4b1"; }
+  .palette.pinkred ._30 {
+    color: #f6f1ee;
+    background: #e3828a; }
+    .palette.pinkred ._30:after {
+      content: "#e3828a"; }
+  .palette.pinkred ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #f6f1ee;
+    background: #de5472; }
+    .palette.pinkred ._base:after {
+      content: "#de5472"; }
+  .palette.pinkred ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #f6f1ee;
+    background: #f40b3e; }
+    .palette.pinkred ._highlight:after {
+      content: "#f40b3e"; }
+  .palette.pinkred ._60 {
+    color: #f6f1ee;
+    background: #b6164e; }
+    .palette.pinkred ._60:after {
+      content: "#b6164e"; }
+  .palette.pinkred ._70 {
+    color: #f6f1ee;
+    background: #8c0d4a; }
+    .palette.pinkred ._70:after {
+      content: "#8c0d4a"; }
+  .palette.pinkred ._80 {
+    color: #f6f1ee;
+    background: #62043e; }
+    .palette.pinkred ._80:after {
+      content: "#62043e"; }
+  .palette.pinkred ._90 {
+    color: #f6f1ee;
+    background: #330026; }
+    .palette.pinkred ._90:after {
+      content: "#330026"; }
+  .palette.pinkred ._95 {
+    color: #f6f1ee;
+    background: #1a0017; }
+    .palette.pinkred ._95:after {
+      content: "#1a0017"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.dullblue {
+  /*[5]*/ }
+  .palette.dullblue ._05 {
+    /*[6]*/
+    color: #0f2124;
+    /*[7]*/
+    background: #f2f2f2;
+    /*[8]*/ }
+    .palette.dullblue ._05:after {
+      content: "#f2f2f2";
+      /*[9]*/ }
+  .palette.dullblue ._10 {
+    color: #0f2124;
+    background: #e6e6e6; }
+    .palette.dullblue ._10:after {
+      content: "#e6e6e6"; }
+  .palette.dullblue ._20 {
+    color: #0f2124;
+    background: #cccccc; }
+    .palette.dullblue ._20:after {
+      content: "#cccccc"; }
+  .palette.dullblue ._30 {
+    color: #0f2124;
+    background: #b3b3b3; }
+    .palette.dullblue ._30:after {
+      content: "#b3b3b3"; }
+  .palette.dullblue ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #f2f2f2;
+    background: #94979e; }
+    .palette.dullblue ._base:after {
+      content: "#94979e"; }
+  .palette.dullblue ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #f2f2f2;
+    background: #5c74a3; }
+    .palette.dullblue ._highlight:after {
+      content: "#5c74a3"; }
+  .palette.dullblue ._60 {
+    color: #f2f2f2;
+    background: #576575; }
+    .palette.dullblue ._60:after {
+      content: "#576575"; }
+  .palette.dullblue ._70 {
+    color: #f2f2f2;
+    background: #3d505c; }
+    .palette.dullblue ._70:after {
+      content: "#3d505c"; }
+  .palette.dullblue ._80 {
+    color: #f2f2f2;
+    background: #243a42; }
+    .palette.dullblue ._80:after {
+      content: "#243a42"; }
+  .palette.dullblue ._90 {
+    color: #f2f2f2;
+    background: #0f2124; }
+    .palette.dullblue ._90:after {
+      content: "#0f2124"; }
+  .palette.dullblue ._95 {
+    color: #f2f2f2;
+    background: #061313; }
+    .palette.dullblue ._95:after {
+      content: "#061313"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.dullpurple {
+  /*[5]*/ }
+  .palette.dullpurple ._05 {
+    /*[6]*/
+    color: #0f1024;
+    /*[7]*/
+    background: #f2f2f2;
+    /*[8]*/ }
+    .palette.dullpurple ._05:after {
+      content: "#f2f2f2";
+      /*[9]*/ }
+  .palette.dullpurple ._10 {
+    color: #0f1024;
+    background: #e6e6e6; }
+    .palette.dullpurple ._10:after {
+      content: "#e6e6e6"; }
+  .palette.dullpurple ._20 {
+    color: #0f1024;
+    background: #cccccc; }
+    .palette.dullpurple ._20:after {
+      content: "#cccccc"; }
+  .palette.dullpurple ._30 {
+    color: #0f1024;
+    background: #b3b3b3; }
+    .palette.dullpurple ._30:after {
+      content: "#b3b3b3"; }
+  .palette.dullpurple ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #f2f2f2;
+    background: #99949e; }
+    .palette.dullpurple ._base:after {
+      content: "#99949e"; }
+  .palette.dullpurple ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #f2f2f2;
+    background: #805ca3; }
+    .palette.dullpurple ._highlight:after {
+      content: "#805ca3"; }
+  .palette.dullpurple ._60 {
+    color: #f2f2f2;
+    background: #625775; }
+    .palette.dullpurple ._60:after {
+      content: "#625775"; }
+  .palette.dullpurple ._70 {
+    color: #f2f2f2;
+    background: #443d5c; }
+    .palette.dullpurple ._70:after {
+      content: "#443d5c"; }
+  .palette.dullpurple ._80 {
+    color: #f2f2f2;
+    background: #272442; }
+    .palette.dullpurple ._80:after {
+      content: "#272442"; }
+  .palette.dullpurple ._90 {
+    color: #f2f2f2;
+    background: #0f1024; }
+    .palette.dullpurple ._90:after {
+      content: "#0f1024"; }
+  .palette.dullpurple ._95 {
+    color: #f2f2f2;
+    background: #060913; }
+    .palette.dullpurple ._95:after {
+      content: "#060913"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.dullred {
+  /*[5]*/ }
+  .palette.dullred ._05 {
+    /*[6]*/
+    color: #240f18;
+    /*[7]*/
+    background: #f2f2f2;
+    /*[8]*/ }
+    .palette.dullred ._05:after {
+      content: "#f2f2f2";
+      /*[9]*/ }
+  .palette.dullred ._10 {
+    color: #240f18;
+    background: #e6e6e6; }
+    .palette.dullred ._10:after {
+      content: "#e6e6e6"; }
+  .palette.dullred ._20 {
+    color: #240f18;
+    background: #cccccc; }
+    .palette.dullred ._20:after {
+      content: "#cccccc"; }
+  .palette.dullred ._30 {
+    color: #240f18;
+    background: #b3b3b3; }
+    .palette.dullred ._30:after {
+      content: "#b3b3b3"; }
+  .palette.dullred ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #f2f2f2;
+    background: #9e9594; }
+    .palette.dullred ._base:after {
+      content: "#9e9594"; }
+  .palette.dullred ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #f2f2f2;
+    background: #a3625c; }
+    .palette.dullred ._highlight:after {
+      content: "#a3625c"; }
+  .palette.dullred ._60 {
+    color: #f2f2f2;
+    background: #755758; }
+    .palette.dullred ._60:after {
+      content: "#755758"; }
+  .palette.dullred ._70 {
+    color: #f2f2f2;
+    background: #5c3d43; }
+    .palette.dullred ._70:after {
+      content: "#5c3d43"; }
+  .palette.dullred ._80 {
+    color: #f2f2f2;
+    background: #42242d; }
+    .palette.dullred ._80:after {
+      content: "#42242d"; }
+  .palette.dullred ._90 {
+    color: #f2f2f2;
+    background: #240f18; }
+    .palette.dullred ._90:after {
+      content: "#240f18"; }
+  .palette.dullred ._95 {
+    color: #f2f2f2;
+    background: #13060e; }
+    .palette.dullred ._95:after {
+      content: "#13060e"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.saffron {
+  /*[5]*/ }
+  .palette.saffron ._05 {
+    /*[6]*/
+    color: #330300;
+    /*[7]*/
+    background: #f6f7ee;
+    /*[8]*/ }
+    .palette.saffron ._05:after {
+      content: "#f6f7ee";
+      /*[9]*/ }
+  .palette.saffron ._10 {
+    color: #330300;
+    background: #f1f0da; }
+    .palette.saffron ._10:after {
+      content: "#f1f0da"; }
+  .palette.saffron ._20 {
+    color: #330300;
+    background: #e8e0b0; }
+    .palette.saffron ._20:after {
+      content: "#e8e0b0"; }
+  .palette.saffron ._30 {
+    color: #330300;
+    background: #e4c881; }
+    .palette.saffron ._30:after {
+      content: "#e4c881"; }
+  .palette.saffron ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #330300;
+    background: #e0a552; }
+    .palette.saffron ._base:after {
+      content: "#e0a552"; }
+  .palette.saffron ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #330300;
+    background: #f5940a; }
+    .palette.saffron ._highlight:after {
+      content: "#f5940a"; }
+  .palette.saffron ._60 {
+    color: #f6f7ee;
+    background: #b75e15; }
+    .palette.saffron ._60:after {
+      content: "#b75e15"; }
+  .palette.saffron ._70 {
+    color: #f6f7ee;
+    background: #8d350c; }
+    .palette.saffron ._70:after {
+      content: "#8d350c"; }
+  .palette.saffron ._80 {
+    color: #f6f7ee;
+    background: #631503; }
+    .palette.saffron ._80:after {
+      content: "#631503"; }
+  .palette.saffron ._90 {
+    color: #f6f7ee;
+    background: #330300; }
+    .palette.saffron ._90:after {
+      content: "#330300"; }
+  .palette.saffron ._95 {
+    color: #f6f7ee;
+    background: #1a0002; }
+    .palette.saffron ._95:after {
+      content: "#1a0002"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.indiagreen {
+  /*[5]*/ }
+  .palette.indiagreen ._05 {
+    /*[6]*/
+    color: #1b2e05;
+    /*[7]*/
+    background: #f1f4f2;
+    /*[8]*/ }
+    .palette.indiagreen ._05:after {
+      content: "#f1f4f2";
+      /*[9]*/ }
+  .palette.indiagreen ._10 {
+    color: #1b2e05;
+    background: #e0ebe4; }
+    .palette.indiagreen ._10:after {
+      content: "#e0ebe4"; }
+  .palette.indiagreen ._20 {
+    color: #1b2e05;
+    background: #bddbc5; }
+    .palette.indiagreen ._20:after {
+      content: "#bddbc5"; }
+  .palette.indiagreen ._30 {
+    color: #1b2e05;
+    background: #94d19c; }
+    .palette.indiagreen ._30:after {
+      content: "#94d19c"; }
+  .palette.indiagreen ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #1b2e05;
+    background: #6bc76b; }
+    .palette.indiagreen ._base:after {
+      content: "#6bc76b"; }
+  .palette.indiagreen ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #1b2e05;
+    background: #29d629; }
+    .palette.indiagreen ._highlight:after {
+      content: "#29d629"; }
+  .palette.indiagreen ._60 {
+    color: #f1f4f2;
+    background: #3d9e2e; }
+    .palette.indiagreen ._60:after {
+      content: "#3d9e2e"; }
+  .palette.indiagreen ._70 {
+    color: #f1f4f2;
+    background: #377a1f; }
+    .palette.indiagreen ._70:after {
+      content: "#377a1f"; }
+  .palette.indiagreen ._80 {
+    color: #f1f4f2;
+    background: #2c570f; }
+    .palette.indiagreen ._80:after {
+      content: "#2c570f"; }
+  .palette.indiagreen ._90 {
+    color: #f1f4f2;
+    background: #1b2e05; }
+    .palette.indiagreen ._90:after {
+      content: "#1b2e05"; }
+  .palette.indiagreen ._95 {
+    color: #f1f4f2;
+    background: #111801; }
+    .palette.indiagreen ._95:after {
+      content: "#111801"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.indiablue {
+  /*[5]*/ }
+  .palette.indiablue ._05 {
+    /*[6]*/
+    color: #001b33;
+    /*[7]*/
+    background: #f3ebfa;
+    /*[8]*/ }
+    .palette.indiablue ._05:after {
+      content: "#f3ebfa";
+      /*[9]*/ }
+  .palette.indiablue ._10 {
+    color: #001b33;
+    background: #e2d4f7; }
+    .palette.indiablue ._10:after {
+      content: "#e2d4f7"; }
+  .palette.indiablue ._20 {
+    color: #001b33;
+    background: #b9a3f5; }
+    .palette.indiablue ._20:after {
+      content: "#b9a3f5"; }
+  .palette.indiablue ._30 {
+    color: #f3ebfa;
+    background: #806ef7; }
+    .palette.indiablue ._30:after {
+      content: "#806ef7"; }
+  .palette.indiablue ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #f3ebfa;
+    background: #3838fa; }
+    .palette.indiablue ._base:after {
+      content: "#3838fa"; }
+  .palette.indiablue ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #f3ebfa;
+    background: blue; }
+    .palette.indiablue ._highlight:after {
+      content: "blue"; }
+  .palette.indiablue ._60 {
+    color: #f3ebfa;
+    background: #001bcc; }
+    .palette.indiablue ._60:after {
+      content: "#001bcc"; }
+  .palette.indiablue ._70 {
+    color: #f3ebfa;
+    background: #002999; }
+    .palette.indiablue ._70:after {
+      content: "#002999"; }
+  .palette.indiablue ._80 {
+    color: #f3ebfa;
+    background: #002966; }
+    .palette.indiablue ._80:after {
+      content: "#002966"; }
+  .palette.indiablue ._90 {
+    color: #f3ebfa;
+    background: #001b33; }
+    .palette.indiablue ._90:after {
+      content: "#001b33"; }
+  .palette.indiablue ._95 {
+    color: #f3ebfa;
+    background: #00111a; }
+    .palette.indiablue ._95:after {
+      content: "#00111a"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.blue1 {
+  /*[5]*/ }
+  .palette.blue1 ._05 {
+    /*[6]*/
+    color: #12211e;
+    /*[7]*/
+    background: #f2f2f2;
+    /*[8]*/ }
+    .palette.blue1 ._05:after {
+      content: "#f2f2f2";
+      /*[9]*/ }
+  .palette.blue1 ._10 {
+    color: #12211e;
+    background: #e6e6e6; }
+    .palette.blue1 ._10:after {
+      content: "#e6e6e6"; }
+  .palette.blue1 ._20 {
+    color: #12211e;
+    background: #cccccc; }
+    .palette.blue1 ._20:after {
+      content: "#cccccc"; }
+  .palette.blue1 ._30 {
+    color: #12211e;
+    background: #b3b3b3; }
+    .palette.blue1 ._30:after {
+      content: "#b3b3b3"; }
+  .palette.blue1 ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #f2f2f2;
+    background: #999999; }
+    .palette.blue1 ._base:after {
+      content: "#999999"; }
+  .palette.blue1 ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #f2f2f2;
+    background: #698796; }
+    .palette.blue1 ._highlight:after {
+      content: "#698796"; }
+  .palette.blue1 ._60 {
+    color: #f2f2f2;
+    background: #61696b; }
+    .palette.blue1 ._60:after {
+      content: "#61696b"; }
+  .palette.blue1 ._70 {
+    color: #f2f2f2;
+    background: #455354; }
+    .palette.blue1 ._70:after {
+      content: "#455354"; }
+  .palette.blue1 ._80 {
+    color: #f2f2f2;
+    background: #293d3c; }
+    .palette.blue1 ._80:after {
+      content: "#293d3c"; }
+  .palette.blue1 ._90 {
+    color: #f2f2f2;
+    background: #12211e; }
+    .palette.blue1 ._90:after {
+      content: "#12211e"; }
+  .palette.blue1 ._95 {
+    color: #f2f2f2;
+    background: #08120e; }
+    .palette.blue1 ._95:after {
+      content: "#08120e"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.blue2 {
+  /*[5]*/ }
+  .palette.blue2 ._05 {
+    /*[6]*/
+    color: #0d2625;
+    /*[7]*/
+    background: #f2f2f2;
+    /*[8]*/ }
+    .palette.blue2 ._05:after {
+      content: "#f2f2f2";
+      /*[9]*/ }
+  .palette.blue2 ._10 {
+    color: #0d2625;
+    background: #e6e6e6; }
+    .palette.blue2 ._10:after {
+      content: "#e6e6e6"; }
+  .palette.blue2 ._20 {
+    color: #0d2625;
+    background: #cccccc; }
+    .palette.blue2 ._20:after {
+      content: "#cccccc"; }
+  .palette.blue2 ._30 {
+    color: #0d2625;
+    background: #abb0ba; }
+    .palette.blue2 ._30:after {
+      content: "#abb0ba"; }
+  .palette.blue2 ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #f2f2f2;
+    background: #8a99a8; }
+    .palette.blue2 ._base:after {
+      content: "#8a99a8"; }
+  .palette.blue2 ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #f2f2f2;
+    background: #4f80b0; }
+    .palette.blue2 ._highlight:after {
+      content: "#4f80b0"; }
+  .palette.blue2 ._60 {
+    color: #f2f2f2;
+    background: #4d6d80; }
+    .palette.blue2 ._60:after {
+      content: "#4d6d80"; }
+  .palette.blue2 ._70 {
+    color: #f2f2f2;
+    background: #365963; }
+    .palette.blue2 ._70:after {
+      content: "#365963"; }
+  .palette.blue2 ._80 {
+    color: #f2f2f2;
+    background: #1f4347; }
+    .palette.blue2 ._80:after {
+      content: "#1f4347"; }
+  .palette.blue2 ._90 {
+    color: #f2f2f2;
+    background: #0d2625; }
+    .palette.blue2 ._90:after {
+      content: "#0d2625"; }
+  .palette.blue2 ._95 {
+    color: #f2f2f2;
+    background: #051412; }
+    .palette.blue2 ._95:after {
+      content: "#051412"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.blue3 {
+  /*[5]*/ }
+  .palette.blue3 ._05 {
+    /*[6]*/
+    color: #05282e;
+    /*[7]*/
+    background: #f1f1f4;
+    /*[8]*/ }
+    .palette.blue3 ._05:after {
+      content: "#f1f1f4";
+      /*[9]*/ }
+  .palette.blue3 ._10 {
+    color: #05282e;
+    background: #e1e0eb; }
+    .palette.blue3 ._10:after {
+      content: "#e1e0eb"; }
+  .palette.blue3 ._20 {
+    color: #05282e;
+    background: #bdbfdb; }
+    .palette.blue3 ._20:after {
+      content: "#bdbfdb"; }
+  .palette.blue3 ._30 {
+    color: #f1f1f4;
+    background: #94a0d1; }
+    .palette.blue3 ._30:after {
+      content: "#94a0d1"; }
+  .palette.blue3 ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #f1f1f4;
+    background: #6b8ac7; }
+    .palette.blue3 ._base:after {
+      content: "#6b8ac7"; }
+  .palette.blue3 ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #f1f1f4;
+    background: #2963d6; }
+    .palette.blue3 ._highlight:after {
+      content: "#2963d6"; }
+  .palette.blue3 ._60 {
+    color: #f1f1f4;
+    background: #2e629e; }
+    .palette.blue3 ._60:after {
+      content: "#2e629e"; }
+  .palette.blue3 ._70 {
+    color: #f1f1f4;
+    background: #1f567a; }
+    .palette.blue3 ._70:after {
+      content: "#1f567a"; }
+  .palette.blue3 ._80 {
+    color: #f1f1f4;
+    background: #0f4457; }
+    .palette.blue3 ._80:after {
+      content: "#0f4457"; }
+  .palette.blue3 ._90 {
+    color: #f1f1f4;
+    background: #05282e; }
+    .palette.blue3 ._90:after {
+      content: "#05282e"; }
+  .palette.blue3 ._95 {
+    color: #f1f1f4;
+    background: #011818; }
+    .palette.blue3 ._95:after {
+      content: "#011818"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.blue4 {
+  /*[5]*/ }
+  .palette.blue4 ._05 {
+    /*[6]*/
+    color: #002433;
+    /*[7]*/
+    background: #f1eef6;
+    /*[8]*/ }
+    .palette.blue4 ._05:after {
+      content: "#f1eef6";
+      /*[9]*/ }
+  .palette.blue4 ._10 {
+    color: #002433;
+    background: #e0dbf0; }
+    .palette.blue4 ._10:after {
+      content: "#e0dbf0"; }
+  .palette.blue4 ._20 {
+    color: #002433;
+    background: #b8b3e6; }
+    .palette.blue4 ._20:after {
+      content: "#b8b3e6"; }
+  .palette.blue4 ._30 {
+    color: #f1eef6;
+    background: #8588e0; }
+    .palette.blue4 ._30:after {
+      content: "#8588e0"; }
+  .palette.blue4 ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #f1eef6;
+    background: #576ddb; }
+    .palette.blue4 ._base:after {
+      content: "#576ddb"; }
+  .palette.blue4 ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #f1eef6;
+    background: #0f35f0; }
+    .palette.blue4 ._highlight:after {
+      content: "#0f35f0"; }
+  .palette.blue4 ._60 {
+    color: #f1eef6;
+    background: #1a47b3; }
+    .palette.blue4 ._60:after {
+      content: "#1a47b3"; }
+  .palette.blue4 ._70 {
+    color: #f1eef6;
+    background: #0f448a; }
+    .palette.blue4 ._70:after {
+      content: "#0f448a"; }
+  .palette.blue4 ._80 {
+    color: #f1eef6;
+    background: #053961; }
+    .palette.blue4 ._80:after {
+      content: "#053961"; }
+  .palette.blue4 ._90 {
+    color: #f1eef6;
+    background: #002433; }
+    .palette.blue4 ._90:after {
+      content: "#002433"; }
+  .palette.blue4 ._95 {
+    color: #f1eef6;
+    background: #00151a; }
+    .palette.blue4 ._95:after {
+      content: "#00151a"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.blue5 {
+  /*[5]*/ }
+  .palette.blue5 ._05 {
+    /*[6]*/
+    color: #001b33;
+    /*[7]*/
+    background: #f3eef6;
+    /*[8]*/ }
+    .palette.blue5 ._05:after {
+      content: "#f3eef6";
+      /*[9]*/ }
+  .palette.blue5 ._10 {
+    color: #001b33;
+    background: #e3dbf0; }
+    .palette.blue5 ._10:after {
+      content: "#e3dbf0"; }
+  .palette.blue5 ._20 {
+    color: #001b33;
+    background: #c0b3e6; }
+    .palette.blue5 ._20:after {
+      content: "#c0b3e6"; }
+  .palette.blue5 ._30 {
+    color: #f3eef6;
+    background: #9185e0; }
+    .palette.blue5 ._30:after {
+      content: "#9185e0"; }
+  .palette.blue5 ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #f3eef6;
+    background: #5757db; }
+    .palette.blue5 ._base:after {
+      content: "#5757db"; }
+  .palette.blue5 ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #f3eef6;
+    background: #0f0ff0; }
+    .palette.blue5 ._highlight:after {
+      content: "#0f0ff0"; }
+  .palette.blue5 ._60 {
+    color: #f3eef6;
+    background: #1a2eb3; }
+    .palette.blue5 ._60:after {
+      content: "#1a2eb3"; }
+  .palette.blue5 ._70 {
+    color: #f3eef6;
+    background: #0f308a; }
+    .palette.blue5 ._70:after {
+      content: "#0f308a"; }
+  .palette.blue5 ._80 {
+    color: #f3eef6;
+    background: #052a61; }
+    .palette.blue5 ._80:after {
+      content: "#052a61"; }
+  .palette.blue5 ._90 {
+    color: #f3eef6;
+    background: #001b33; }
+    .palette.blue5 ._90:after {
+      content: "#001b33"; }
+  .palette.blue5 ._95 {
+    color: #f3eef6;
+    background: #00111a; }
+    .palette.blue5 ._95:after {
+      content: "#00111a"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.blue6 {
+  /*[5]*/ }
+  .palette.blue6 ._05 {
+    /*[6]*/
+    color: #001333;
+    /*[7]*/
+    background: #f5ecf9;
+    /*[8]*/ }
+    .palette.blue6 ._05:after {
+      content: "#f5ecf9";
+      /*[9]*/ }
+  .palette.blue6 ._10 {
+    color: #001333;
+    background: #e8d6f5; }
+    .palette.blue6 ._10:after {
+      content: "#e8d6f5"; }
+  .palette.blue6 ._20 {
+    color: #001333;
+    background: #c7a8f0; }
+    .palette.blue6 ._20:after {
+      content: "#c7a8f0"; }
+  .palette.blue6 ._30 {
+    color: #f5ecf9;
+    background: #9a75f0; }
+    .palette.blue6 ._30:after {
+      content: "#9a75f0"; }
+  .palette.blue6 ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #f5ecf9;
+    background: #5f42f0; }
+    .palette.blue6 ._base:after {
+      content: "#5f42f0"; }
+  .palette.blue6 ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #f5ecf9;
+    background: #2b00ff; }
+    .palette.blue6 ._highlight:after {
+      content: "#2b00ff"; }
+  .palette.blue6 ._60 {
+    color: #f5ecf9;
+    background: #0c05c7; }
+    .palette.blue6 ._60:after {
+      content: "#0c05c7"; }
+  .palette.blue6 ._70 {
+    color: #f5ecf9;
+    background: #000f99; }
+    .palette.blue6 ._70:after {
+      content: "#000f99"; }
+  .palette.blue6 ._80 {
+    color: #f5ecf9;
+    background: #001866; }
+    .palette.blue6 ._80:after {
+      content: "#001866"; }
+  .palette.blue6 ._90 {
+    color: #f5ecf9;
+    background: #001333; }
+    .palette.blue6 ._90:after {
+      content: "#001333"; }
+  .palette.blue6 ._95 {
+    color: #f5ecf9;
+    background: #000d1a; }
+    .palette.blue6 ._95:after {
+      content: "#000d1a"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.warm1 {
+  /*[5]*/ }
+  .palette.warm1 ._05 {
+    /*[6]*/
+    color: #240f1a;
+    /*[7]*/
+    background: #f2f2f2;
+    /*[8]*/ }
+    .palette.warm1 ._05:after {
+      content: "#f2f2f2";
+      /*[9]*/ }
+  .palette.warm1 ._10 {
+    color: #240f1a;
+    background: #e6e6e6; }
+    .palette.warm1 ._10:after {
+      content: "#e6e6e6"; }
+  .palette.warm1 ._20 {
+    color: #240f1a;
+    background: #cccccc; }
+    .palette.warm1 ._20:after {
+      content: "#cccccc"; }
+  .palette.warm1 ._30 {
+    color: #240f1a;
+    background: #b3b3b3; }
+    .palette.warm1 ._30:after {
+      content: "#b3b3b3"; }
+  .palette.warm1 ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #f2f2f2;
+    background: #9e9494; }
+    .palette.warm1 ._base:after {
+      content: "#9e9494"; }
+  .palette.warm1 ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #f2f2f2;
+    background: #a35c5c; }
+    .palette.warm1 ._highlight:after {
+      content: "#a35c5c"; }
+  .palette.warm1 ._60 {
+    color: #f2f2f2;
+    background: #75575b; }
+    .palette.warm1 ._60:after {
+      content: "#75575b"; }
+  .palette.warm1 ._70 {
+    color: #f2f2f2;
+    background: #5c3d45; }
+    .palette.warm1 ._70:after {
+      content: "#5c3d45"; }
+  .palette.warm1 ._80 {
+    color: #f2f2f2;
+    background: #422430; }
+    .palette.warm1 ._80:after {
+      content: "#422430"; }
+  .palette.warm1 ._90 {
+    color: #f2f2f2;
+    background: #240f1a; }
+    .palette.warm1 ._90:after {
+      content: "#240f1a"; }
+  .palette.warm1 ._95 {
+    color: #f2f2f2;
+    background: #13060f; }
+    .palette.warm1 ._95:after {
+      content: "#13060f"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.warm2 {
+  /*[5]*/ }
+  .palette.warm2 ._05 {
+    /*[6]*/
+    color: #260d16;
+    /*[7]*/
+    background: #f2f2f2;
+    /*[8]*/ }
+    .palette.warm2 ._05:after {
+      content: "#f2f2f2";
+      /*[9]*/ }
+  .palette.warm2 ._10 {
+    color: #260d16;
+    background: #e6e6e6; }
+    .palette.warm2 ._10:after {
+      content: "#e6e6e6"; }
+  .palette.warm2 ._20 {
+    color: #260d16;
+    background: #cccccc; }
+    .palette.warm2 ._20:after {
+      content: "#cccccc"; }
+  .palette.warm2 ._30 {
+    color: #260d16;
+    background: #baafab; }
+    .palette.warm2 ._30:after {
+      content: "#baafab"; }
+  .palette.warm2 ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #f2f2f2;
+    background: #a88f8a; }
+    .palette.warm2 ._base:after {
+      content: "#a88f8a"; }
+  .palette.warm2 ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #f2f2f2;
+    background: #b05f4f; }
+    .palette.warm2 ._highlight:after {
+      content: "#b05f4f"; }
+  .palette.warm2 ._60 {
+    color: #f2f2f2;
+    background: #804e4d; }
+    .palette.warm2 ._60:after {
+      content: "#804e4d"; }
+  .palette.warm2 ._70 {
+    color: #f2f2f2;
+    background: #63363a; }
+    .palette.warm2 ._70:after {
+      content: "#63363a"; }
+  .palette.warm2 ._80 {
+    color: #f2f2f2;
+    background: #471f28; }
+    .palette.warm2 ._80:after {
+      content: "#471f28"; }
+  .palette.warm2 ._90 {
+    color: #f2f2f2;
+    background: #260d16; }
+    .palette.warm2 ._90:after {
+      content: "#260d16"; }
+  .palette.warm2 ._95 {
+    color: #f2f2f2;
+    background: #14050d; }
+    .palette.warm2 ._95:after {
+      content: "#14050d"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.warm3 {
+  /*[5]*/ }
+  .palette.warm3 ._05 {
+    /*[6]*/
+    color: #290a10;
+    /*[7]*/
+    background: #f2f2f2;
+    /*[8]*/ }
+    .palette.warm3 ._05:after {
+      content: "#f2f2f2";
+      /*[9]*/ }
+  .palette.warm3 ._10 {
+    color: #290a10;
+    background: #e6e6e6; }
+    .palette.warm3 ._10:after {
+      content: "#e6e6e6"; }
+  .palette.warm3 ._20 {
+    color: #290a10;
+    background: #d1cdc7; }
+    .palette.warm3 ._20:after {
+      content: "#d1cdc7"; }
+  .palette.warm3 ._30 {
+    color: #290a10;
+    background: #c2b1a3; }
+    .palette.warm3 ._30:after {
+      content: "#c2b1a3"; }
+  .palette.warm3 ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #f2f2f2;
+    background: #b39180; }
+    .palette.warm3 ._base:after {
+      content: "#b39180"; }
+  .palette.warm3 ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #f2f2f2;
+    background: #bd6b42; }
+    .palette.warm3 ._highlight:after {
+      content: "#bd6b42"; }
+  .palette.warm3 ._60 {
+    color: #f2f2f2;
+    background: #8a5142; }
+    .palette.warm3 ._60:after {
+      content: "#8a5142"; }
+  .palette.warm3 ._70 {
+    color: #f2f2f2;
+    background: #6b322e; }
+    .palette.warm3 ._70:after {
+      content: "#6b322e"; }
+  .palette.warm3 ._80 {
+    color: #f2f2f2;
+    background: #4d1a1d; }
+    .palette.warm3 ._80:after {
+      content: "#4d1a1d"; }
+  .palette.warm3 ._90 {
+    color: #f2f2f2;
+    background: #290a10; }
+    .palette.warm3 ._90:after {
+      content: "#290a10"; }
+  .palette.warm3 ._95 {
+    color: #f2f2f2;
+    background: #16040a; }
+    .palette.warm3 ._95:after {
+      content: "#16040a"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.warm4 {
+  /*[5]*/ }
+  .palette.warm4 ._05 {
+    /*[6]*/
+    color: #2b0809;
+    /*[7]*/
+    background: #f2f2f2;
+    /*[8]*/ }
+    .palette.warm4 ._05:after {
+      content: "#f2f2f2";
+      /*[9]*/ }
+  .palette.warm4 ._10 {
+    color: #2b0809;
+    background: #e8e8e3; }
+    .palette.warm4 ._10:after {
+      content: "#e8e8e3"; }
+  .palette.warm4 ._20 {
+    color: #2b0809;
+    background: #d6d1c2; }
+    .palette.warm4 ._20:after {
+      content: "#d6d1c2"; }
+  .palette.warm4 ._30 {
+    color: #2b0809;
+    background: #c9b99c; }
+    .palette.warm4 ._30:after {
+      content: "#c9b99c"; }
+  .palette.warm4 ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #f2f2f2;
+    background: #bd9975; }
+    .palette.warm4 ._base:after {
+      content: "#bd9975"; }
+  .palette.warm4 ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #f2f2f2;
+    background: #c98036; }
+    .palette.warm4 ._highlight:after {
+      content: "#c98036"; }
+  .palette.warm4 ._60 {
+    color: #f2f2f2;
+    background: #945a38; }
+    .palette.warm4 ._60:after {
+      content: "#945a38"; }
+  .palette.warm4 ._70 {
+    color: #f2f2f2;
+    background: #733826; }
+    .palette.warm4 ._70:after {
+      content: "#733826"; }
+  .palette.warm4 ._80 {
+    color: #f2f2f2;
+    background: #521b14; }
+    .palette.warm4 ._80:after {
+      content: "#521b14"; }
+  .palette.warm4 ._90 {
+    color: #f2f2f2;
+    background: #2b0809; }
+    .palette.warm4 ._90:after {
+      content: "#2b0809"; }
+  .palette.warm4 ._95 {
+    color: #f2f2f2;
+    background: #170306; }
+    .palette.warm4 ._95:after {
+      content: "#170306"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.warm5 {
+  /*[5]*/ }
+  .palette.warm5 ._05 {
+    /*[6]*/
+    color: #2e0705;
+    /*[7]*/
+    background: #f3f4f1;
+    /*[8]*/ }
+    .palette.warm5 ._05:after {
+      content: "#f3f4f1";
+      /*[9]*/ }
+  .palette.warm5 ._10 {
+    color: #2e0705;
+    background: #ebeae0; }
+    .palette.warm5 ._10:after {
+      content: "#ebeae0"; }
+  .palette.warm5 ._20 {
+    color: #2e0705;
+    background: #dbd7bd; }
+    .palette.warm5 ._20:after {
+      content: "#dbd7bd"; }
+  .palette.warm5 ._30 {
+    color: #2e0705;
+    background: #d1c094; }
+    .palette.warm5 ._30:after {
+      content: "#d1c094"; }
+  .palette.warm5 ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #2e0705;
+    background: #c7a16b; }
+    .palette.warm5 ._base:after {
+      content: "#c7a16b"; }
+  .palette.warm5 ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #f3f4f1;
+    background: #d68e29; }
+    .palette.warm5 ._highlight:after {
+      content: "#d68e29"; }
+  .palette.warm5 ._60 {
+    color: #f3f4f1;
+    background: #9e602e; }
+    .palette.warm5 ._60:after {
+      content: "#9e602e"; }
+  .palette.warm5 ._70 {
+    color: #f3f4f1;
+    background: #7a3c1f; }
+    .palette.warm5 ._70:after {
+      content: "#7a3c1f"; }
+  .palette.warm5 ._80 {
+    color: #f3f4f1;
+    background: #571c0f; }
+    .palette.warm5 ._80:after {
+      content: "#571c0f"; }
+  .palette.warm5 ._90 {
+    color: #f3f4f1;
+    background: #2e0705; }
+    .palette.warm5 ._90:after {
+      content: "#2e0705"; }
+  .palette.warm5 ._95 {
+    color: #f3f4f1;
+    background: #180103; }
+    .palette.warm5 ._95:after {
+      content: "#180103"; }
+
+/*[1]*/
+/*[2]*/
+/*[3]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+/*[4]*/
+.palette.warm6 {
+  /*[5]*/ }
+  .palette.warm6 ._05 {
+    /*[6]*/
+    color: #330700;
+    /*[7]*/
+    background: #f6f9ec;
+    /*[8]*/ }
+    .palette.warm6 ._05:after {
+      content: "#f6f9ec";
+      /*[9]*/ }
+  .palette.warm6 ._10 {
+    color: #330700;
+    background: #f3f5d6; }
+    .palette.warm6 ._10:after {
+      content: "#f3f5d6"; }
+  .palette.warm6 ._20 {
+    color: #330700;
+    background: #f0eba8; }
+    .palette.warm6 ._20:after {
+      content: "#f0eba8"; }
+  .palette.warm6 ._30 {
+    color: #330700;
+    background: #f0d775; }
+    .palette.warm6 ._30:after {
+      content: "#f0d775"; }
+  .palette.warm6 ._base {
+    height: 20%;
+    min-height: 60px;
+    color: #330700;
+    background: #f0b642; }
+    .palette.warm6 ._base:after {
+      content: "#f0b642"; }
+  .palette.warm6 ._highlight {
+    min-height: 2%;
+    min-height: 18px;
+    color: #330700;
+    background: #ffaa00; }
+    .palette.warm6 ._highlight:after {
+      content: "#ffaa00"; }
+  .palette.warm6 ._60 {
+    color: #f6f9ec;
+    background: #c76c05; }
+    .palette.warm6 ._60:after {
+      content: "#c76c05"; }
+  .palette.warm6 ._70 {
+    color: #f6f9ec;
+    background: #993d00; }
+    .palette.warm6 ._70:after {
+      content: "#993d00"; }
+  .palette.warm6 ._80 {
+    color: #f6f9ec;
+    background: #661b00; }
+    .palette.warm6 ._80:after {
+      content: "#661b00"; }
+  .palette.warm6 ._90 {
+    color: #f6f9ec;
+    background: #330700; }
+    .palette.warm6 ._90:after {
+      content: "#330700"; }
+  .palette.warm6 ._95 {
+    color: #f6f9ec;
+    background: #1a0000; }
+    .palette.warm6 ._95:after {
+      content: "#1a0000"; }
+
+/* LAYOUT STYLING
+======================================================================== */
+*,
+body,
+html,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  background: #f5f4f0;
+  margin: 0;
+  font-size: 0;
+  font-family: "Open Sans", "San Francisco Text", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+p {
+  font-size: 1.6rem;
+  margin: 0 auto; }
+  p:last-of-type {
+    margin-bottom: 2rem; }
+
+h3 {
+  font-size: 3rem;
+  margin-bottom: 1.6rem; }
+
+ul {
+  margin: 0;
+  padding: 0; }
+
+li {
+  width: 100%;
+  padding: 10px;
+  height: 5%;
+  min-height: 30px;
+  list-style: none;
+  font-weight: 500;
+  font-size: 1.2rem; }
+  li:after {
+    float: right; }
+  li:before {
+    content: attr(class);
+    float: left; }
+
+.block {
+  padding: .5%;
+  border-radius: 2px;
+  display: inline-block; }
+  .block.sml {
+    width: 16.6666666667%; }
+  .block.med {
+    width: 33.3333333333%; }
+  .block.lrg {
+    width: 100%; }
+
+.content {
+  display: table;
+  width: 100%;
+  height: 100%; }
+
+.btn {
+  font-weight: 600;
+  transition: all .1s ease-in-out;
+  cursor: pointer;
+  border-radius: 2px;
+  display: inline-block; }
+  .btn.sml {
+    font-size: 1.6rem;
+    padding: 11px 17px; }
+  .btn.lrg {
+    font-size: 2.2rem;
+    padding: 17px 22px; }
+
+/*# sourceMappingURL=styles.css.map */
